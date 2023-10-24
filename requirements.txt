@@ -1,0 +1,14 @@
+eo-learn
+geopandas
+imblearn
+joblib
+keras
+lightgbm
+matplotlib
+numpy
+pandas
+scikit-learn
+seaborn
+sentinelhub
+shapely
+tensorflow
