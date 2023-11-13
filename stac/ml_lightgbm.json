@@ -1,0 +1,315 @@
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://schemas.stacspec.org/v1.0.0-beta.3/extensions/dl-model/json-schema/schema.json",
+    "https://stac-extensions.github.io/processing/v1.1.0/schema.json"
+  ],
+  "id": "ml-lightgbm",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [3855873.85613579, 3078475.4944943646],
+        [3855873.85613579, 3391085.3177675004],
+        [4136175.9575563148, 3391085.3177675004],
+        [4136175.9575563148, 3078475.4944943646],
+        [3855873.85613579, 3078475.4944943646]
+      ]
+    ]
+  },
+  "bbox": [
+    3855873.85613579, 3078475.4944943646, 4136175.9575563148, 3391085.3177675004
+  ],
+  "crs": "EPGS:3035",
+  "collection": "EO-DL-model-catalog",
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://github.com/sentinel-hub/stac-ml-example/stac/ml-lightgbm.json"
+    },
+    {
+      "rel": "collection",
+      "href": "https://github.com/sentinel-hub/stac-ml-example/stac/model_catalog.json"
+    }
+  ],
+  "assets": [
+    {
+      "model_archive": {
+        "href": "https://github.com/sentinel-hub/stac-ml-example",
+        "type": "application/vnd.github.raw",
+        "title": "stac-ml-example",
+        "description": "A github reopsitory contains a toy example of ML stac workflow",
+        "role": ["project repository"]
+      }
+    }
+  ],
+  "properties": {
+    "datetime": "2023-10-10T00:00:00Z",
+    "title": "LGBM model",
+    "description": "Lightgbm model trained for crop classification in Netherland using HRVPP as features and eurocrop as labels",
+    "license": "MIT",
+    "created": "2023-10-10T00:00:00Z",
+    "updated": "2023-10-10T00:00:00Z",
+    "providers": [
+      {
+        "name": "Sinergise solutions d.o.o",
+        "roles": ["model provider"],
+        "url": "https://sinergise.com/"
+      },
+      {
+        "name": "EEA",
+        "roles": ["HRVPP licensor"],
+        "url": "https://effigis.com/en/"
+      },
+      {
+        "name": "PDOK",
+        "roles": ["EuroCrops Netherland licensor"],
+        "url": "https://www.pdok.nl/"
+      }
+    ],
+    "platform": "Euro Data Cube",
+    "gsd": 10,
+    "features": [
+      {
+        "name": "Season amplitude (MAXV-MINV)",
+        "common_name": "AMPL",
+        "unit": "PPI",
+        "digital_range": "0-3"
+      },
+      {
+        "name": "Day of end-of-season",
+        "common_name": "EOSD",
+        "unit": "day-of-season",
+        "digital_range": "16001-65365 (YYDOY)"
+      },
+      {
+        "name": "Vegetation index value at EOSD",
+        "common_name": "EOSV",
+        "unit": "PPI",
+        "digital_range": "0-3"
+      },
+      {
+        "name": "Length of Season (number of days between start and end)",
+        "common_name": "LENGTH",
+        "unit": "day",
+        "digital_range": "1-1096"
+      },
+      {
+        "name": "Slope of the greening up period",
+        "common_name": "LSLOPE",
+        "unit": "PPI x day-1",
+        "digital_range": "0.01-0.5"
+      },
+      {
+        "name": "Day of maximum-of-season",
+        "common_name": "MAXD",
+        "unit": "day-of-year",
+        "digital_range": "16001-65365 (YYDOY)"
+      },
+      {
+        "name": "Vegetation index value at MAXD",
+        "common_name": "MAXV",
+        "unit": "PPI",
+        "digital_range": "0-3"
+      },
+      {
+        "name": "Average vegetation index value of minima on left and right sides of each season",
+        "common_name": "MINV",
+        "unit": "PPI",
+        "digital_range": "0-3"
+      },
+      {
+        "name": "Quality Flag",
+        "common_name": "QFLAG",
+        "unit": "Dimensionless",
+        "digital_range": "1-10"
+      },
+      {
+        "name": "Slope of the senescent period",
+        "common_name": "RSLOPE",
+        "unit": "PPI x day-1",
+        "digital_range": "0.01-0.5"
+      },
+      {
+        "name": "Day of start-of-season",
+        "common_name": "SOSD",
+        "unit": "day-of-year",
+        "digital_range": "16001-65365 (YYDOY)"
+      },
+      {
+        "name": "Vegetation index value at SOSD",
+        "common_name": "SOSV",
+        "unit": "PPI",
+        "digital_range": "0-3"
+      },
+      {
+        "name": "Seasonal productivity. The growing season integral computed as the sum of all daily values between SOSD and EOSD",
+        "common_name": "SPROD",
+        "unit": "PPI x day",
+        "digital_range": "0-1095"
+      },
+      {
+        "name": "Total productivity. The growing season integral computed as sum of all daily values minus their base level value",
+        "common_name": "TPROD",
+        "unit": "PPI x day",
+        "digital_range": "0-1095"
+      }
+    ],
+    "processing:level": "L4",
+    "dlm:runtime": {
+      "framework": "TensorFlow",
+      "version": "2.14.0",
+      "model_handler": "CLI inference",
+      "model_src_url": "https://github.com/sentinel-hub/stac-ml-example",
+      "model_commit_hash": null,
+      "requirement_file": null,
+      "docker": null
+    },
+    "dlm:archive": [
+      {
+        "name": "lgbm_model.pkl",
+        "role": [
+          "sequential model trained for crop classification in Netherland using HRVPP as features and eurocrop as labels"
+        ],
+        "href": "https://github.com/sentinel-hub/stac-ml-example/models/lgbm_model.pkl"
+      },
+      {
+        "name": "example.tiff",
+        "role": ["example input file"],
+        "href": "https://github.com/sentinel-hub/stac-ml-example/inputs/example.tiff"
+      },
+      {
+        "name": "example_prediction.tiff",
+        "role": ["prediction of the example input by the model"],
+        "href": "https://github.com/sentinel-hub/stac-ml-example/outputs/example_prediction.tiff"
+      }
+    ],
+    "dlm:data": {
+      "process_level": "L4",
+      "dtype": "uint16",
+      "number_of_bands": 14,
+      "useful_bands": [
+        {
+          "index": 1,
+          "name": "AMPL",
+          "nodata_value": 32768
+        },
+        {
+          "index": 2,
+          "name": "EOSD",
+          "nodata_value": 0
+        },
+        {
+          "index": 3,
+          "name": "EOSV",
+          "nodata_value": 32768
+        },
+        {
+          "index": 4,
+          "name": "LENGTH",
+          "nodata_value": 0
+        },
+        {
+          "index": 5,
+          "name": "LSLOPE",
+          "nodata_value": 32768
+        },
+        {
+          "index": 6,
+          "name": "MAXD",
+          "nodata_value": 0
+        },
+        {
+          "index": 7,
+          "name": "MAXV",
+          "nodata_value": 32768
+        },
+        {
+          "index": 8,
+          "name": "MINV",
+          "nodata_value": 32768
+        },
+        {
+          "index": 9,
+          "name": "QFLAG",
+          "nodata_value": 0
+        },
+        {
+          "index": 10,
+          "name": "RSLOPE",
+          "nodata_value": 32768
+        },
+        {
+          "index": 11,
+          "name": "SOSD",
+          "nodata_value": 0
+        },
+        {
+          "index": 12,
+          "name": "SOSV",
+          "nodata_value": 32768
+        },
+        {
+          "index": 13,
+          "name": "SPROD",
+          "nodata_value": 65535
+        },
+        {
+          "index": 14,
+          "name": "TPROD",
+          "nodata_value": 65535
+        }
+      ],
+      "test_file": "https://github.com/sentinel-hub/stac-ml-example/eolearn-out/eopatches_sampled/eopatch_0",
+      "item_examples": [
+        {
+          "title": "an eopatch item",
+          "url": "https://github.com/sentinel-hub/stac-ml-example/stac/eopatch_0.json"
+        }
+      ]
+    },
+    "dlm:inputs": {
+      "name": "data",
+      "input_tensors": {// The inputs should be in 2 dimensional ex dataframe or 2d numpy
+        "batch": 1,
+        "channels": 14,
+        "height": 1000,
+        "width": 1000
+      },
+      "scaling_factor": [
+        3.33333333e-5, 2.75482094e-3, 3.96463545e-5, 2.76243094e-3,
+        8.85739593e-4, 2.76243094e-3, 3.33333333e-5, 7.22386766e-5, 1.25e-1,
+        8.36120401e-4, 2.75482094e-3, 5.79474996e-5, 1.74246384e-4,
+        1.46305779e-4
+      ],
+      "normalization:mean": [
+        0.47352344, 0.68702263, 0.15844932, 0.41256586, 0.23817748, 0.4269211,
+        0.53015152, 0.12268883, 0.83777538, 0.19618773, 0.25590992, 0.29566371,
+        0.27466859, 0.28028854
+      ],
+      "normalization:std": [
+        0.22578425, 0.20278933, 0.0934563, 0.19609055, 0.17457397, 0.13795503,
+        0.24207895, 0.12370264, 0.24040813, 0.16640351, 0.16053487, 0.14632059,
+        0.16060306, 0.17381225
+      ],
+      "selected_bands": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "pre_processing_function": ["transform_data", "standardize"]
+    },
+    "dlm:outputs": {
+      "task": "binary classification",
+      "number_of_classes": 2,
+      "dont_care_index": null,
+      "final_layer_size": [1, 1, 1000, 1000],
+      "class_name_mapping": [
+        {
+          "0": "not grassland"
+        },
+        {
+          "1": "grassland"
+        }
+      ],
+      "post_processing_function": null
+    }
+  }
+}
