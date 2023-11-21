@@ -102,6 +102,5 @@ target/
 __pycache__/
 
 # Project data
-data/
 eolearn-out/
 results/
